@@ -39,8 +39,9 @@ module RuCaptcha
     #   verify_rucaptcha?(user, keep_session: true)
     #   verify_rucaptcha?(nil, keep_session: true)
     #
-    def verify_rucaptcha?(resource: nil, key: nil, opts = {})
+    def verify_rucaptcha?(resource: nil, key: nil, opts: {})
       opts ||= {}
+      logger.info "=====================key is #{key}"
       store_info = RuCaptcha.cache.read(rucaptcha_sesion_key_key(key))
       # make sure move used key
       RuCaptcha.cache.delete(rucaptcha_sesion_key_key(key)) unless opts[:keep_session]
