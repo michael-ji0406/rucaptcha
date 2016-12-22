@@ -5,9 +5,9 @@ module RuCaptcha
       headers['Pragma'] = 'no-cache'
 
       if Gem.win_platform?
-        send_file generate_rucaptcha, disposition: 'inline', type: 'image/png'
+        send_file generate_rucaptcha(params[:key]), disposition: 'inline', type: 'image/png'
       else
-        send_data generate_rucaptcha, disposition: 'inline', type: 'image/png'
+        send_data generate_rucaptcha(params[:key]), disposition: 'inline', type: 'image/png'
       end
     end
   end
