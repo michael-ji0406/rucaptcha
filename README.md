@@ -90,7 +90,7 @@ Controller `app/controller/account_controller.rb`
 class AccountController < ApplicationController
   def create
     @user = User.new(params[:user])
-    if verify_rucaptcha?(@user) && @user.save
+    if verify_rucaptcha?(resource: @user) && @user.save
       redirect_to root_path, notice: 'Sign up successed.'
     else
       render 'account/new'
@@ -99,7 +99,7 @@ class AccountController < ApplicationController
 end
 ```
 
-> TIP: Sometime you may need keep last verified captcha code in session on `verify_rucaptcha?` method call, you can use `keep_session: true`. For example: ` Verify_rucaptcha? (@user, keep_session: true) `.
+> TIP: Sometime you may need keep last verified captcha code in session on `verify_rucaptcha?` method call, you can use `keep_session: true`. For example: ` Verify_rucaptcha? (resource: @user, opts: {keep_session: true}) `.
 
 View `app/views/account/new.html.erb`
 
