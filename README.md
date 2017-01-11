@@ -1,3 +1,14 @@
+This repo is forked from huacnlee/rucaptcha. 
+The change is that we support use this for app client.
+Now you can get the capcha image with key parameter and post validate value with the same key value of key parameter.
+
+ex.
+
+```
+Get xxx.com/captcha?key=kndfen23k3253
+POST xxx.com/login {key: 'michael-ji0406/rucaptcha', email: 'foo@bar.com', password:[FILTERED], _rubcapcha: '4332'}
+```
+
 # RuCaptcha
 
 [![Gem Version](https://badge.fury.io/rb/rucaptcha.svg)](https://badge.fury.io/rb/rucaptcha)
